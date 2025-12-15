@@ -29,6 +29,11 @@ html {
   font-family: "Montserrat", sans-serif;
   scroll-behavior: smooth;
 }
+.swiper-button-next,
+.swiper-button-prev {
+  display: none !important;
+}
+
 
 @media (min-width: 1440px) {
   html {
@@ -234,6 +239,8 @@ body {
   position: relative;
   width: 15rem;
   bottom: 1rem;
+  display: none;
+
 }
 
 .tranding-slider-control .swiper-pagination .swiper-pagination-bullet {
@@ -451,26 +458,35 @@ body {
     <script src="https://unpkg.com/swiper@8/swiper-bundle.min.js"></script>
     <script>
       var TrandingSlider = new Swiper('.tranding-slider', {
-  effect: 'coverflow',
-  grabCursor: true,
-  centeredSlides: true,
-  loop: true,
-  slidesPerView: 'auto',
-  coverflowEffect: {
-    rotate: 0,
-    stretch: 0,
-    depth: 100,
-    modifier: 2.5,
-  },
-  pagination: {
-    el: '.swiper-pagination',
-    clickable: true,
-  },
-  navigation: {
-    nextEl: '.swiper-button-next',
-    prevEl: '.swiper-button-prev',
-  }
-});
+    effect: 'coverflow',
+    grabCursor: true,
+    centeredSlides: true,
+    loop: true,
+    slidesPerView: 'auto',
+
+    autoplay: {
+      delay: 2500,            // thời gian giữa mỗi slide (ms)
+      disableOnInteraction: false, // người dùng kéo vẫn tiếp tục chạy
+      pauseOnMouseEnter: true // hover thì dừng (tuỳ chọn)
+    },
+
+    coverflowEffect: {
+      rotate: 0,
+      stretch: 0,
+      depth: 100,
+      modifier: 2.5,
+    },
+
+    pagination: {
+      el: '.swiper-pagination',
+      clickable: true,
+    },
+
+    navigation: {
+      nextEl: '.swiper-button-next',
+      prevEl: '.swiper-button-prev',
+    }
+  });
     </script>
   </body>
 
